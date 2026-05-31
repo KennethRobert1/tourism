@@ -67,12 +67,22 @@ export default function ToursGrid({ lang }) {
         <div className="flex justify-center">
           <div className="w-full max-w-md bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col">
             
-            {/* Visual Header Node */}
-            <div className="relative h-48 bg-gradient-to-br from-emerald-800 to-teal-950 flex items-center justify-center text-white px-6 text-center">
-              <div className="absolute inset-0 bg-black/20" />
+            {/* Visual Header Node with Dynamic Background Image */}
+            <div 
+              className="relative h-56 bg-cover bg-center flex items-center justify-center text-white px-6 text-center"
+              style={{ 
+                backgroundImage: `url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800')` 
+              }}
+            >
+              {/* Dark linear overlay gradient to ensure clean text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-gray-900/30" />
+              
               <div className="relative z-10">
-                <h3 className="text-xl font-black mt-3 leading-tight">{tour.title}</h3>
-                <p className="text-xs text-emerald-200 mt-1 font-medium">{tour.subtitle}</p>
+                <span className="bg-amber-400 text-gray-950 text-[10px] uppercase tracking-widest font-black px-2.5 py-1 rounded-full">
+                  {lang === 'en' ? 'Active Package' : 'Kifurushi Kipo Wazi'}
+                </span>
+                <h3 className="text-xl font-black mt-3 leading-tight drop-shadow-md">{tour.title}</h3>
+                <p className="text-xs text-emerald-300 mt-1 font-semibold drop-shadow-sm">{tour.subtitle}</p>
               </div>
             </div>
 
@@ -113,13 +123,15 @@ export default function ToursGrid({ lang }) {
               <div className="border-t border-gray-100 pt-4 mt-auto">
                 <div className="flex items-baseline justify-between mb-4">
                   <span className="text-xs text-gray-400 font-semibold uppercase">{l.cost}</span>
-                  <span className="text-lg font-black text-gray-900">TSH 45,000 - 70,000</span>
+                  <span className="text-lg font-black text-gray-900">
+                    TSH 45,000 - 70,000 <span className="text-xs text-gray-400 font-normal">{lang === 'en' ? '/Person' : '/Mtu'}</span>
+                  </span>
                 </div>
                 <a 
                   href={tour.wa} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="block w-full text-center py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-colors shadow-sm"
+                  className="block w-full text-center py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-colors shadow-sm active:scale-[0.98] duration-150"
                 >
                   {l.btn}
                 </a>
