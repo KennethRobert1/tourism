@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, Globe } from 'lucide-react';
+import logoImg from '../assets/bhcheetah logo.png';
 
-export default function Navbar({ isScrolled }) {
+export default function Navbar({ isScrolled, lang, toggleLanguage }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Dictionary Object
+  const content = {
+    en: { services: "Services", tours: "Featured Tours", call: "Call Agent" },
+    sw: { services: "Huduma Zetu", tours: "Safari Zetu", call: "Piga Simu" }
+  };
+
+  const t = content[lang];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -10,25 +19,31 @@ export default function Navbar({ isScrolled }) {
     }`}>
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Brand Identity / Logo */}
         <a href="#" className="flex items-center gap-2 font-black text-xl tracking-tight">
-          <span className={isScrolled ? 'text-emerald-700' : 'text-amber-400'}>BHCHEETAH</span>
-          <span className="font-light">TOURS</span>
+          <img 
+            src={logoImg} 
+            alt="Bhcheetah Tours Logo" 
+            className="w-50 h-50 object-contain" // Tailwind rules controlling logo dimensions
+          />
         </a>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 font-medium text-sm">
-          <a href="#" className="hover:text-amber-500 transition-colors">Home</a>
-          <button onClick={() => document.getElementById('services-section')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-500 transition-colors">Services</button>
-          <button onClick={() => document.getElementById('tours-section')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-500 transition-colors">Featured Tours</button>
+          <button onClick={() => document.getElementById('services-section')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-500 transition-colors">{t.services}</button>
+          <button onClick={() => document.getElementById('tours-section')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-500 transition-colors">{t.tours}</button>
           
+          {/* Inline Language switcher indicator */}
+          <button onClick={toggleLanguage} className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider opacity-80 hover:opacity-100 transition-opacity">
+            <Globe className="w-3.5 h-3.5" /> {lang === 'en' ? 'SW' : 'EN'}
+          </button>
+
           <a 
-            href="tel:+255620508340" 
+            href="tel:+255654423395" 
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
               isScrolled ? 'bg-emerald-700 text-white hover:bg-emerald-800' : 'bg-white/20 text-white hover:bg-white/30 border border-white/20'
             }`}
           >
-            <Phone className="w-3.5 h-3.5" /> Call Agent
+            <Phone className="w-3.5 h-3.5" /> {t.call}
           </a>
         </div>
 
@@ -37,18 +52,6 @@ export default function Navbar({ isScrolled }) {
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
-
-      {/* Mobile Dropdown Panel */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl py-6 px-6 text-gray-900 flex flex-col gap-4 font-semibold">
-          <a href="#" onClick={() => setIsOpen(false)} className="hover:text-emerald-700">Home</a>
-          <button onClick={() => { setIsOpen(false); document.getElementById('services-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-left hover:text-emerald-700">Services</button>
-          <button onClick={() => { setIsOpen(false); document.getElementById('tours-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-left hover:text-emerald-700">Featured Tours</button>
-          <a href="tel:+255620508340" className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-700 text-white text-sm rounded-xl font-bold">
-            <Phone className="w-4 h-4" /> Call Agent Now
-          </a>
-        </div>
-      )}
     </nav>
   );
 }

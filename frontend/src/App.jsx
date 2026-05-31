@@ -7,8 +7,9 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
+  // 'en' for English, 'sw' for Swahili
+  const [lang, setLang] = useState('en'); 
 
-  // Monitors page scroll to dynamically change the Navbar layout style
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -21,25 +22,32 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleLanguage = () => {
+    setLang((prev) => (prev === 'en' ? 'sw' : 'en'));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-amber-500 selection:text-gray-950 scroll-smooth">
       
-      {/* Passing the scroll state down to change Navbar background from transparent to solid */}
-      <Navbar isScrolled={scrolled} />
+      {/* 1. Pass lang and toggleLanguage function to Navbar */}
+      <Navbar isScrolled={scrolled} lang={lang} toggleLanguage={toggleLanguage} />
       
       <main>
-        {/* The primary screen-entry visual viewport section */}
-        <Hero />
-        
-        {/* Features the 3 core pillars (Safaris, Car Rental, Tickets) */}
-        <Services />
-        
-        {/* Displays the explicit Mbeya tour packages with WhatsApp routing actions */}
-        <ToursGrid />
+        {/* 2. Pass lang to all content blocks */}
+        <Hero lang={lang} />
+        <Services lang={lang} />
+        <ToursGrid lang={lang} />
       </main>
       
-      {/* Features formal agency registrations, email contact nodes, and footer grids */}
-      <Footer />
+      <Footer lang={lang} />
+
+      {/* Floating Quick Toggle Button for better UX presentation */}
+      <button 
+        onClick={toggleLanguage}
+        className="fixed bottom-6 right-6 z-50 bg-amber-500 hover:bg-amber-400 text-gray-950 font-black text-xs tracking-wider px-4 py-3 rounded-xl shadow-lg flex items-center gap-1.5 transition-transform active:scale-95 border border-amber-600/20"
+      >
+        🌐 {lang === 'en' ? 'SWAHILI' : 'ENGLISH'}
+      </button>
       
     </div>
   );
