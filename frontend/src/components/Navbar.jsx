@@ -82,7 +82,7 @@ export default function Navbar({ isScrolled, lang, toggleLanguage }) {
             </button>
 
             <a 
-              href="tel:+255654423395" 
+              href="tel:+255620508340" 
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-sm ${
                 isScrolled 
                   ? 'bg-emerald-700 text-white hover:bg-emerald-800 shadow-emerald-700/10' 

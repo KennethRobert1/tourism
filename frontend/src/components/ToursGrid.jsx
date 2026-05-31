@@ -33,7 +33,7 @@ export default function ToursGrid({ lang }) {
         "Historical storytelling & cultural history", 
         "Complimentary drinks & refreshments"
       ],
-      wa: "https://wa.me/255654423395?text=Hello%20Bhcheetah%20Tours!%20I%20am%20viewing%2520your%20website%20and%20would%20like%20to%20book%20the%20Chunya%20to%20Mpanga%20Kipengele%20Adventure."
+      wa: "https://wa.me/255620508340?text=Hello%20Bhcheetah%20Tours!%20I%20am%20viewing%2520your%20website%20and%20would%20like%20to%20book%20the%20Chunya%20to%20Mpanga%20Kipengele%20Adventure."
     },
     sw: {
       title: "Safari ya Chunya Kwenda Mpanga Kipengele",
@@ -46,7 +46,7 @@ export default function ToursGrid({ lang }) {
         "Masimulizi ya kihistoria na maadili ya utamaduni", 
         "Vinywaji na viburudisho vya njiani bure"
       ],
-      wa: "https://wa.me/255654423395?text=Habari%20Bhcheetah%20Tours!%20Nimeona%20website%20yenu%20na%20ningependa%20kuweka%20booking%20kwa%20ajili%20ya%20safari%20ya%20Chunya%20kwenda%20Mpanga%20Kipengele."
+      wa: "https://wa.me/255620508340?text=Habari%20Bhcheetah%20Tours!%20Nimeona%20website%20yenu%20na%20ningependa%20kuweka%20booking%20kwa%20ajili%20ya%20safari%20ya%20Chunya%20kwenda%20Mpanga%20Kipengele."
     }
   };
 
