@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X, Globe, Compass, Layers, PhoneCall, Home } from 'lucide-react';
 
-import logoImg from '../assets/bhcheetah logo.png'; 
+import logoImg from '../assets/bhcheetah_logo.png'; 
 
 export default function Navbar({ isScrolled, lang, toggleLanguage }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function Navbar({ isScrolled, lang, toggleLanguage }) {
             className="flex items-center group focus:outline-none"
           >
             {/* Ultra-Wide Rectangular Card Frame (Exactly 2.5x width ratio) */}
-            <div className="h-16 w-40 md:h-20 md:w-50 rounded-xl bg-white/95 p-2 shadow-sm border border-gray-100/80 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-[1.02] duration-200">
+            <div className="h-16 w-40 md:h-20 md:w-50 rounded-xl p-2 border border-gray-100/80 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-[1.02] duration-200">
               <img 
                 src={logoImg} 
                 alt="Bhcheetah Tours Panoramic Brand Logo" 
