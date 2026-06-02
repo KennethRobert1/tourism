@@ -42,7 +42,7 @@ export default function Navbar({ isScrolled, lang, toggleLanguage }) {
             className="flex items-center group focus:outline-none"
           >
             {/* Ultra-Wide Rectangular Card Frame (Exactly 2.5x width ratio) */}
-            <div className="h-16 w-40 md:h-20 md:w-50 rounded-xl p-2 border border-gray-100/80 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-[1.02] duration-200">
+            <div className="h-16 w-40 md:h-20 md:w-50 rounded-xl p-2 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-[1.02] duration-200">
               <img 
                 src={logoImg} 
                 alt="Bhcheetah Tours Panoramic Brand Logo" 
