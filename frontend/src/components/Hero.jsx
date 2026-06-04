@@ -32,7 +32,7 @@ export default function Hero({ lang }) {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button onClick={() => document.getElementById('tours-section')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-gray-950 font-bold rounded-xl transition-all duration-200 shadow-md">{t.cta1}</button>
-          <a href="https://wa.me/255620508340" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl border border-white/20 backdrop-blur-sm text-center">{t.cta2}</a>
+          <a href="https://wa.me/255654423395" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl border border-white/20 backdrop-blur-sm text-center">{t.cta2}</a>
         </div>
       </div>
     </section>
